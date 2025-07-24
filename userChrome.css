@@ -41,7 +41,7 @@
 /*   padding: 12px 0!important; */
 }
 .tools-and-extensions,
-.actions-list {
+.actions-list{
   --button-outer-padding-block-start: 0px!important;
 /*     padding-inline-start: 0px!important; */
 /*     padding-inline-end:   0px!important; */
@@ -51,6 +51,7 @@
 /*   --button-outer-padding-block:   12px!important; */
   
   --button-size-icon: 8px!important;
+  --icon-size-default: 8px!important;
   --button-padding-icon: 12px!important;
   --button-margin-icon: 0px!important;
   
@@ -64,6 +65,54 @@
     --button-outer-padding-block-end: 0px!important;
   }
 }
+
+.urlbar-page-action {
+  justify-content: center!important;
+  width: 14px!important;
+  height: 14px!important;
+  margin-left: 3px!important;
+}
+
+.toolbarbutton-badge-stack > image {
+  width: 16px!important;
+  height: 16px!important;
+}
+
+#page-action-buttons {
+  
+}
+
+
+
+#downloads-button > .toolbarbutton-badge-stack > box {
+  
+}
+
+
+#downloads-button > .toolbarbutton-badge-stack {
+  padding:0px!important;
+  width: 14px;
+  height: 14px;
+/*   padding: 2px!important; */
+}
+#downloads-button > .toolbarbutton-badge-stack > box {
+  /*! transform: scale(80%); */
+  padding: 0!important;
+  /*  
+    I do not like this, but it works. The #downloads-button is a height of 20px, and 
+    so is this box, but we can't scale all of the inner images for each box unless we 
+    want to tweak each one (which right now I don't) - so here's the 
+    current solution.
+  -3.25% is just a random number that seems to look okay
+  */
+  transform: scale(87.5%) translateX(-3.25%) translateY(-3.25%); 
+}
+
+#downloads-button > .toolbarbutton-badge-stack > box > image {
+}
+
+
+
 /* .button-background {
   &[type~="icon"]:not(.labelled), &:not(.labelled):has(img) {
     width: var(--button-size-icon);
@@ -71,6 +120,10 @@
     padding: var(--button-padding-icon);
   }
 } */
+
+#urlbar {
+  --focus-outline: none!important;
+}
 
 #urlbar-background,
 #searchbar {
@@ -99,7 +152,7 @@
      to right, 
     #0000 0%, 
     #33333377 .7%,  
-    #33333377 100%, 
+    #33333377 99.3%, 
     #0000 100%
   );
 }
@@ -206,10 +259,12 @@ toolbarpaletteitem {
 /*   visibility: hidden; */
 /*   margin-left: 6px!important;; */
   width: 14px!important;
-  padding: 1px!important;
+  /*! padding: 1px!important; */
   height: 14px!important;
   align-self: center!important;
   ;
+text-align: center;
+justify-self: center !important;
 }
 #urlbar-background {
 }
