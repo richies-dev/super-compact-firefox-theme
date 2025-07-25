@@ -51,7 +51,7 @@
 /*   --button-outer-padding-block:   12px!important; */
   
   --button-size-icon: 8px!important;
-  --icon-size-default: 8px!important;
+  --icon-size-default: 10px!important;
   --button-padding-icon: 12px!important;
   --button-margin-icon: 0px!important;
   
@@ -74,8 +74,8 @@
 }
 
 .toolbarbutton-badge-stack > image {
-  width: 16px!important;
-  height: 16px!important;
+  width: 14px!important;
+  height: 14px!important;
 }
 
 #page-action-buttons {
@@ -121,8 +121,11 @@
   }
 } */
 
-#urlbar {
+/* #urlbar[attr*=] */
+#urlbar, #navigator-toolbox {
   --focus-outline: none!important;
+/*  Maybe temporariy? for macos goofyness  */
+  transform: none!important;
 }
 
 #urlbar-background,
@@ -150,15 +153,46 @@
 /*   background-color: var(--toolbar-field-focus-background-color); */
   background: linear-gradient(
      to right, 
-    #0000 0%, 
-    #33333377 .7%,  
-    #33333377 99.3%, 
-    #0000 100%
+    #3339 0%, 
+    #23333377 .6%,  
+    #13333388 50%,  
+    #23333377 99.4%, 
+    #3339 100%
   );
+  width: 100%!important;
+/*   position: relative!important; */
+
 }
+#urlbar[breakout][breakout-extend] > #urlbar-background {
+
+}
+
+#urlbar[breakout][breakout-extend] {
+  --urlbar-margin-inline: 0px;
+  --urlbar-container-padding: 0px;
+/*   height: auto; */
+  margin-left: calc(-1 * var(--urlbar-margin-inline));
+  width: calc(var(--urlbar-width) + 2 * var(--urlbar-margin-inline));
+
+  > .urlbar-input-container {
+  }
+}
+
+/* changing dflt selector so the results show when selected */
+/* #urlbar:not([open]) > .urlbarView, #urlbar:not([breakout]) > .urlbarView { */
+/* #urlbar:not([open]) > .urlbarView, #urlbar:not([breakout]) > .urlbarView {
+  display: block!important;
+}
+#urlbar:not([breakout]) > .urlbarView {
+  display: none!important;
+} */
+
+
 #urlbar-container {
 }
 .urlbarView {
+  position: relative;
+  width: 100%!important;
 }
 .urlbarView-favicon {
   width: 10px!important;
@@ -258,6 +292,11 @@ toolbarpaletteitem {
 .urlbar-input-container image {
 /*   visibility: hidden; */
 /*   margin-left: 6px!important;; */
+/*  
+  
+  this could be modified with padding & stuff to match the others
+  
+  */
   width: 14px!important;
   /*! padding: 1px!important; */
   height: 14px!important;
@@ -481,7 +520,7 @@ tab:not([selected="true"]) {
 }
 tab {
   font-family: sans-serif;
-  font-weight: bold;
+/*   font-weight: bold; */
   border: none !important;
   padding-top: 0 !important;
 }
