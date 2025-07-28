@@ -13,8 +13,8 @@
   ;
 
   /* try increasing if you encounter problems */
-  --urlbar-height-setting: 18px !important;
-  --tab-min-height: 16px !important;
+  --urlbar-height-setting:16px !important;
+  --tab-min-height: 14px !important;
 
   /* I don't recommend you touch this unless you know what you're doing */
   --arrowpanel-menuitem-padding: 2px !important;
@@ -26,7 +26,6 @@
     --urlbar-focused-bg-color
   ) !important;
   --toolbar-field-focus-border-color: transparent !important;
-  --urlbar-container-padding: 0px!important;
   --urlbarView-row-gutter: 0px!important;
   --icon-size-default: 12px!important;
   
@@ -34,7 +33,18 @@
 /*   --button-outer-padding-inline: 1px!important; */
 /*   --button-outer-padding-block: 2px!important; */
 }
-
+#navigator-toolbox {
+  height: 34px!important;
+}
+toolbar { 
+min-height: 16px!important;
+}
+toolbar {
+/*   min-height: 16px!important; */
+}
+.tabbrowser-tab {
+  height: 16px !important;
+}
 .tools-and-extensions {
 /* width: inherit!important; */
 /*   width: unset!important; */
@@ -174,7 +184,7 @@
 
 }
 #urlbar {
-  --urlbar-container-padding: 2px;
+  --urlbar-container-padding: 0px 2px;
 }
 #urlbar[breakout][breakout-extend] > #urlbar-background {
 
@@ -182,7 +192,6 @@
 
 #urlbar[breakout][breakout-extend] {
   --urlbar-margin-inline: 0px;
-/*   --urlbar-container-padding: 0px; */
 /*   height: auto; */
   margin-left: calc(-1 * var(--urlbar-margin-inline));
   width: calc(var(--urlbar-width) + 2 * var(--urlbar-margin-inline));
@@ -190,7 +199,9 @@
   > .urlbar-input-container {
   }
 }
-
+.urlbar-input-container {
+  border: none!important;
+}
 /* changing dflt selector so the results show when selected */
 /* #urlbar:not([open]) > .urlbarView, #urlbar:not([breakout]) > .urlbarView { */
 /* #urlbar:not([open]) > .urlbarView, #urlbar:not([breakout]) > .urlbarView {
@@ -250,6 +261,7 @@ toolbarpaletteitem {
   --button-size-icon: 12px!important;
 }
 #TabsToolbar {
+  align-items:flex-start;
 }
 #TabsToolbar .toolbarbutton-icon {
   width: 12px !important;
@@ -539,7 +551,8 @@ panelview .toolbarbutton-1,
 }
 #TabsToolbar,
 .tabbrowser-tab {
-  max-height: var(--tab-min-height) !important;
+  
+/*   max-height: var(--tab-min-height) !important; */
   font-size: 11px !important;
 }
 
