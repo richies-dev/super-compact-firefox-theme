@@ -257,8 +257,8 @@ toolbarpaletteitem {
 }
 
 .button-background {
-  --button-size-icon-small: 12px!important;
-  --button-size-icon: 12px!important;
+  --button-size-icon-small: 16px!important;
+  --button-size-icon: 14px!important;
 }
 #TabsToolbar {
   align-items:flex-start;
