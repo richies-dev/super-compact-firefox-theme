@@ -184,7 +184,7 @@ toolbar {
 
 }
 #urlbar {
-  --urlbar-container-padding: 0px 2px;
+  --urlbar-container-padding: 2px;
 }
 #urlbar[breakout][breakout-extend] > #urlbar-background {
 
