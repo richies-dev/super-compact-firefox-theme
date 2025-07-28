@@ -227,7 +227,7 @@
 /*   border: none; */
 }
 #nav-bar-customization-target {
-  margin: 0px 0px 0px 5px !important;
+  margin: 0px 0px 0px 4px !important;
 }
 .toolbarbutton-icon {
 /*   width: 16px!important; */
@@ -242,7 +242,7 @@ toolbarpaletteitem {
 
 #TabsToolbar-customization-target
  {
-  margin: 0px 0 0 4px!important;
+/*   margin: 0px 0 0 4px!important; */
 }
 
 .button-background {
@@ -399,8 +399,11 @@ menupopup > #context-sep-navigation {
 /* --- STYLE NAVBAR ------------------------------------ */
 
 /* remove padding between toolbar buttons */
-toolbar .toolbarbutton-1 {
+.toolbarbutton-1 {
   padding: 0 0 !important;
+  margin-right: 0px !important;
+}
+#nav-bar-customization-target .toolbarbutton-1 {
   margin-right: 2px !important;
 }
 
