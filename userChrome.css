@@ -602,6 +602,8 @@ tab {
 }
 .tab-icon-stack {
   margin-right: 2px
+  margin-right: 2px;
+  margin-left: 2px;
 }
 
 /* Tab: selected colors */
