@@ -16,13 +16,11 @@
     --tab-hover-background-color: #333 !important;
     --urlbar-focused-bg-color: #1c1b2200 !important;
     --urlbar-not-focused-bg-color: #1c1b2200 !important;
-    --tab-font: "DejaVu Sans Mono" !important;
-    --urlbar-font: "DejaVu Sans Mono" !important;
-    --toolbar-bgcolor: #333 !important;
+    --toolbar-bgcolor: #353535ee !important;
     --toolbar-field-background-color: #00000000 !important;
 
     /* try increasing if you encounter problems */
-    --urlbar-height-setting: 16px !important;
+    --urlbar-height-setting: 18px !important;
     --tab-min-height: 14px !important;
 
     /* I don't recommend you touch this unless you know what you're doing */
@@ -35,10 +33,21 @@
     --toolbar-field-focus-border-color: transparent !important;
     --urlbarView-row-gutter: 0px !important;
     --icon-size-default: 12px !important;
-
+    --urlbar-text-align: left;
     /*   --button-outer-padding-block-start: 12px!important; */
     /*   --button-outer-padding-inline: 1px!important; */
     /*   --button-outer-padding-block: 2px!important; */
+
+    --identity-icon-label-font-size: 10px;
+    --urlbar-container-font-size: 10px;
+    --default-font-family: sans-serif;
+    --tab-font-size: 10px;
+    --tab-close-btn-font-size: 7px;
+    
+}
+
+#urlbar-input {
+    text-align: var(--urlbar-text-align) !important;
 }
 
 #navigator-toolbox {
@@ -99,6 +108,10 @@ toolbar {
     border: 0px !important;
 }
 
+#urlbar {
+      align-content:center;
+}
+
 #urlbar[focused]>#urlbar-background,
 #searchbar:focus-within {
     box-shadow: none !important;
@@ -118,27 +131,30 @@ toolbar {
 #urlbar:is([focused],
     [open])>#urlbar-background,
 #searchbar:focus-within {
+    --searchbar-gradient-green-color: #28332899;
     background: linear-gradient(to right,
-            #3339 0%,
-            #23333377 .6%,
-            #13333388 50%,
-            #23333377 99.4%,
-            #3339 100%);
+            color-mix(in srgb, var(--toolbar-bgcolor), transparent 100%),
+            color-mix(in srgb, var(--toolbar-bgcolor), transparent 60%) .2%,
+            var(--searchbar-gradient-green-color) 5%,
+            var(--searchbar-gradient-green-color) 50%,
+            var(--searchbar-gradient-green-color) 95%,
+            color-mix(in srgb, var(--toolbar-bgcolor), transparent 60%) 99.8%,
+            color-mix(in srgb, var(--toolbar-bgcolor), transparent 100%) 100%);
     width: 100% !important;
 }
 
-#urlbar {
-    --urlbar-container-padding: 0px 2px;
+
+#urlbar .urlbar-input-container {
+    padding: 0px 2px!important;
 }
-
-#urlbar[breakout][breakout-extend]>#urlbar-background {}
-
 #urlbar[breakout][breakout-extend] {
+    
+/*     top:inherit!important; */
     --urlbar-margin-inline: 0px;
-    margin-left: calc(-1 * var(--urlbar-margin-inline));
-    width: calc(var(--urlbar-width) + 2 * var(--urlbar-margin-inline));
+    
+  margin-left: calc(-1 * var(--urlbar-margin-inline));
+  width: calc(var(--urlbar-width) + 2 * var(--urlbar-margin-inline));
 
-    >.urlbar-input-container {}
 }
 
 #urlbar-input {
@@ -302,8 +318,8 @@ toolbar {
 }
 
 .identity-box-button > label {
-    font-family: sans-serif;
-    font-size: 10px;
+    font-family: var(--default-font-family);
+    font-size: var(--identity-icon-label-font-size);
 }
 
 #nav-bar .identity-box-button > image,
@@ -406,8 +422,8 @@ menupopup>#context-sep-navigation {
     margin-right: 0 !important;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
-    font-family: sans-serif;
-    font-size: 10px;
+    font-family: var(--default-font-family);
+    font-size: var(--urlbar-container-font-size);
 }
 
 #urlbar {
@@ -540,11 +556,11 @@ panelview .toolbarbutton-1,
 .tabbrowser-tab {
 
     /*   max-height: var(--tab-min-height) !important; */
-    font-size: 11px !important;
+    font-size: var(--tab-font-size) !important;
 }
 
 tab {
-    font-family: sans-serif;
+    font-family: var(--default-font-family);
     /*   font-weight: bold; */
     border: none !important;
     padding-top: 0 !important;
@@ -572,11 +588,10 @@ tab {
     display: none !important;
 }
 
-/* Hide close button on tabs */
 #tabbrowser-tabs .tabbrowser-tab:hover .tab-close-button {
     display: initial !important;
     opacity: .6 !important;
-    font-size: 7px !important;
+    font-size: var(--tab-close-btn-font-size) !important;
     padding: 6px 3px !important;
     /*   width: 16px!important; */
     width: 16px !important;
