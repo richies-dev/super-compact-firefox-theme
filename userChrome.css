@@ -7,7 +7,7 @@
     --tab-outline: 0px solid var(--tab-outline-color) !important;
     --tab-outline-offset: 0px!important;
     
-    --tab-selected-bgcolor: rgb(27, 108, 39) !important;
+    --tab-selected-bgcolor: rgb(7, 110, 72) !important;
     --tab-inactive-bg-color: #333 !important;
     --tab-active-fg-fallback-color: #eee !important;
     /* color of text in an active tab without a container */
