@@ -1,5 +1,13 @@
 :root {
-    --tab-active-bg-color: #057 !important;
+    --tabs-background-color: #282828 !important;
+/*     --tab-active-bg-color: #257 !important; */
+    --tab-border-radius: 1px!important;
+    
+    --tab-outline-color: blue!important;
+    --tab-outline: 0px solid var(--tab-outline-color) !important;
+    --tab-outline-offset: 0px!important;
+    
+    --tab-selected-bgcolor: rgb(27, 108, 39) !important;
     --tab-inactive-bg-color: #333 !important;
     --tab-active-fg-fallback-color: #eee !important;
     /* color of text in an active tab without a container */
@@ -34,15 +42,15 @@
 }
 
 #navigator-toolbox {
-    height: 34px !important;
+    height: 36px !important;
 }
 
 toolbar {
-    min-height: 16px !important;
+    min-height: 18px !important;
 }
 
 .tabbrowser-tab {
-    height: 16px !important;
+    height: 18px !important;
 }
 
 #sidebar-main {
@@ -53,57 +61,22 @@ toolbar {
     background-color: var(--toolbar-bgcolor) !important;
 }
 
-.tools-and-extensions,
-.actions-list {
+.tools-and-extensions, .actions-list {
     --button-outer-padding-block-start: 0px !important;
     --button-size-icon: 8px !important;
-    --icon-size-default: 12px !important;
-    --button-padding-icon: 12px !important;
+    --icon-size-default: 10px !important;
+    --button-padding-icon: 4px !important;
     --button-margin-icon: 0px !important;
 }
 
 .actions-list {
     &>moz-button:not(.tools-overflow) {
-        --button-outer-padding-inline: 1px !important;
-        --button-outer-padding-block: 10px !important;
+        --button-outer-padding-inline: 4px !important;
+        --button-outer-padding-block: 8px !important;
         --button-outer-padding-block-start: 0px !important;
         --button-outer-padding-block-end: 0px !important;
     }
 }
-
-.urlbar-page-action {
-    justify-content: center !important;
-    width: 14px !important;
-    height: 14px !important;
-    margin-left: 3px !important;
-}
-
-.toolbarbutton-badge-stack>image {
-    width: 14px !important;
-    height: 14px !important;
-}
-
-#downloads-button>.toolbarbutton-badge-stack {
-    padding: 0px !important;
-    width: 14px;
-    height: 14px;
-    /*   padding: 2px!important; */
-}
-
-#downloads-button>.toolbarbutton-badge-stack>box {
-    /*! transform: scale(80%); */
-    padding: 0 !important;
-    /*
-    I do not like this, but it works. The #downloads-button is a height of 20px, and
-    so is this box, but we can't scale all of the inner images for each box unless we
-    want to tweak each one (which right now I don't) - so here's the
-    current solution.
-  -3.25% is just a random number that seems to look okay
-  */
-    transform: scale(87.5%) translateX(-3.25%) translateY(-3.25%);
-}
-
-#downloads-button>.toolbarbutton-badge-stack>box>image {}
 
 /* .button-background {
   &[type~="icon"]:not(.labelled), &:not(.labelled):has(img) {
@@ -116,7 +89,7 @@ toolbar {
 /* #urlbar[attr*=] */
 #urlbar,
 #navigator-toolbox {
-    --focus-outline: none !important;
+    /*! --focus-outline: none !important; */
     /*  Maybe temporary? for macos goofyness  */
     transform: none !important;
 }
@@ -155,7 +128,7 @@ toolbar {
 }
 
 #urlbar {
-    --urlbar-container-padding: 2px;
+    --urlbar-container-padding: 0px 2px;
 }
 
 #urlbar[breakout][breakout-extend]>#urlbar-background {}
@@ -168,6 +141,9 @@ toolbar {
     >.urlbar-input-container {}
 }
 
+#urlbar-input {
+    border-radius: 0 !important;
+}
 .urlbar-input-container {
     border: none !important;
 }
@@ -202,9 +178,6 @@ toolbar {
     margin: 0px 0px 0px 4px !important;
 }
 
-.toolbarbutton-icon {
-    width: 14px !important;
-}
 
 #TabsToolbar-customization-target {}
 
@@ -215,12 +188,6 @@ toolbar {
 
 #TabsToolbar {
     align-items: flex-start;
-}
-
-#TabsToolbar .toolbarbutton-icon {
-    width: 12px !important;
-    height: 12px !important;
-    margin: 0 4px !important;
 }
 
 .tab-icon-overlay {
@@ -242,13 +209,6 @@ toolbar {
     --toolbarbutton-inner-padding: 0px 2px !important;
 }
 
-#TabsToolbar .toolbarbutton-icon,
-#TabsToolbar .tab-icon-image {
-    width: 12px !important;
-    height: 12px !important;
-    --tab-icon-end-margin: 2px !important;
-}
-
 #tabbrowser-tabs {
     --tab-min-width: unset;
     --tab-inline-padding: calc((var(--tab-collapsed-width) - var(--icon-size-default)) / 2);
@@ -259,8 +219,6 @@ toolbar {
 .urlbar-icon {
     height: 100% !important;
 }
-
-#forward-button {}
 
 #urlbarView {
     background: transparent !important;
@@ -279,19 +237,83 @@ toolbar {
     opacity: 1 !important;
 }
 
+#urlbar-background {}
+
+#pinned-tabs-container[orient="horizontal"] {
+  margin-inline-end: 2px!important;
+}
+
+/* Tab: hovered colors */
+#tabbrowser-tabs .tabbrowser-tab:hover:not([selected]) .tab-content {
+    background: #1c1b22;
+}
+
+.urlbar-page-action {
+    justify-content: center !important;
+    margin-left: 3px !important;
+}
+
+:root {
+    --icon-scale-adjustment: .8;
+}
+
+.urlbar-page-action, 
+.toolbarbutton-badge-stack, 
+.urlbar-input-container image, 
+.toolbarbutton-icon,
+#nav-bar .toolbarbutton-1 {
+    width: 16px !important;
+    height: 16px !important;
+    padding: 0px !important;
+}
+
+#nav-bar .toolbarbutton-1 {
+    align-self: center!important;
+}
+
 .urlbar-input-container image {
-    width: 14px !important;
-    height: 14px !important;
     align-self: center !important;
     text-align: center;
     justify-self: center !important;
 }
 
-#urlbar-background {}
+#TabsToolbar .tab-icon-image {
+    width: 12px !important;
+    height: 12px !important;
+    --tab-icon-end-margin: 2px !important;
+}
+#TabsToolbar .toolbarbutton-icon {
+    width: 14px !important;
+    height: 14px !important;
+    margin: 0 0 0 4px !important;
+}
 
-/* Tab: hovered colors */
-#tabbrowser-tabs .tabbrowser-tab:hover:not([selected]) .tab-content {
-    background: #1c1b22;
+
+#nav-bar .toolbarbutton-1:hover {
+  background-color: var(--toolbarbutton-hover-background);
+}
+
+#nav-bar .toolbarbutton-1 .toolbarbutton-icon:hover {
+  background-color: unset!important;
+}
+
+.identity-box-button:not(:hover) {
+    background: none!important;
+}
+
+.identity-box-button > label {
+    font-family: sans-serif;
+    font-size: 10px;
+}
+
+#nav-bar .identity-box-button > image,
+#nav-bar .urlbar-icon, 
+#nav-bar .toolbarbutton-icon, 
+#nav-bar .toolbarbutton-badge-stack>image, 
+#nav-bar .toolbarbutton-badge-stack>box,
+#TabsToolbar .toolbarbutton-icon, 
+#TabsToolbar .tab-icon-image {
+    transform: scale(var(--icon-scale-adjustment));
 }
 
 /* --- GENERAL DEBLOAT ---------------------------------- */
@@ -363,12 +385,12 @@ menupopup>#context-sep-navigation {
 /* remove padding between toolbar buttons */
 .toolbarbutton-1 {
     padding: 0 0 !important;
-    margin-right: 0px !important;
-}
-
-#nav-bar-customization-target .toolbarbutton-1 {
     margin-right: 2px !important;
 }
+
+/* #nav-bar-customization-target .toolbarbutton-1 {
+    margin-right: 0px !important;
+} */
 
 /* add it back to the downloads button, otherwise it's too close to the urlbar */
 #downloads-button {}
@@ -521,16 +543,6 @@ panelview .toolbarbutton-1,
     font-size: 11px !important;
 }
 
-/* Change color of normal tabs */
-tab:not([selected="true"]) {
-    /*   background-color: var(--tab-inactive-bg-color) !important; */
-    color: #eee !important;
-    /*   color: var(
-    --identity-icon-color,
-    var(--tab-inactive-fg-fallback-color) */
-    /* ) !important; */
-}
-
 tab {
     font-family: sans-serif;
     /*   font-weight: bold; */
@@ -592,11 +604,20 @@ tab {
     margin-left: 2px;
 }
 
+#tabbrowser-tabs, 
+#TabsToolbar-customization-target {
+    background-color: var(--tabs-background-color);
+}
 /* Tab: selected colors */
 #tabbrowser-tabs .tabbrowser-tab[selected] .tab-content {
     background: var(--tab-active-bg-color) !important;
     color: var(--identity-icon-color,
             var(--tab-active-fg-fallback-color)) !important;
+}
+#tabbrowser-tabs .tabbrowser-tab:not([selected="true"]) .tab-content {
+    
+    background-color: var(--tab-inactive-bg-color) !important;
+    color: #eee !important;
 }
 
 /* hide window controls */
