@@ -43,7 +43,27 @@
     --default-font-family: sans-serif;
     --tab-font-size: 10px;
     --tab-close-btn-font-size: 7px;
+    --bookmarks-toolbar-font-size: 10px;
     
+}
+
+:root {
+    --urlbar-icon-scale-width: 14px;
+    --urlbar-icon-scale-height: 14px;
+    --icon-scale-adjustment: .7;
+}
+
+#PersonalToolbar {
+    font-size: var(--bookmarks-toolbar-font-size);
+}
+
+#PersonalToolbar .bookmark-item {
+/*     background: #333!important; */
+    padding: 0px 2px!important;
+    margin: 0px 1px!important;
+    opacity: .7!important;
+    color: #aaa;
+/*     box-shadow: 1px 0px 1px #1118; */
 }
 
 #urlbar-input {
@@ -261,20 +281,14 @@ toolbar {
     margin-left: 3px !important;
 }
 
-:root {
-    --urlbar-icon-scale-width: 14px;
-    --urlbar-icon-scale-height: 14px;
-    --icon-scale-adjustment: .7;
-    
-}
-
 .urlbar-page-action, 
 .toolbarbutton-badge-stack, 
 .urlbar-input-container image, 
 #nav-bar .toolbarbutton-1,
 #nav-bar .urlbar-icon, 
 #nav-bar .identity-box-button image,
-#nav-bar .toolbarbutton-icon {
+#nav-bar .toolbarbutton-icon,
+#PersonalToolbar .toolbarbutton-icon {
     width: var(--urlbar-icon-scale-width) !important;
     height: var(--urlbar-icon-scale-height) !important;
     padding: 0px !important;
@@ -310,7 +324,7 @@ toolbar {
     margin: 0 0 0 4px !important;
 }
 
-#nav-bar .toolbarbutton-1 {
+#nav-bar .toolbarbutton-1, #PersonalToolbar .toolbarbutton-1 {
     &:not([disabled]) {
         &:hover {
             background-color: var(--toolbarbutton-hover-background);
@@ -338,7 +352,8 @@ toolbar {
 #nav-bar .toolbarbutton-badge-stack>image, 
 #nav-bar .toolbarbutton-badge-stack>box,
 #TabsToolbar .toolbarbutton-icon, 
-#TabsToolbar .tab-icon-image {
+#TabsToolbar .tab-icon-image,
+#PersonalToolbar .toolbarbutton-icon {
     transform: scale(var(--icon-scale-adjustment))!important;
 }
 
