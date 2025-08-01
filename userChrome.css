@@ -265,6 +265,7 @@ toolbar {
     --urlbar-icon-scale-width: 14px;
     --urlbar-icon-scale-height: 14px;
     --icon-scale-adjustment: .7;
+    
 }
 
 .urlbar-page-action, 
@@ -298,8 +299,8 @@ toolbar {
 }
 
 #TabsToolbar .tab-icon-image {
-    width: 12px !important;
-    height: 12px !important;
+    width: 14px !important;
+    height: 14px !important;
     --tab-icon-end-margin: 4px !important;
 }
 
