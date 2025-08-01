@@ -38,8 +38,8 @@
     /*   --button-outer-padding-inline: 1px!important; */
     /*   --button-outer-padding-block: 2px!important; */
 
-    --identity-icon-label-font-size: 10px;
-    --urlbar-container-font-size: 10px;
+    --identity-icon-label-font-size: 8px;
+    --searchbar-font-size: 10px;
     --default-font-family: sans-serif;
     --tab-font-size: 10px;
     --tab-close-btn-font-size: 7px;
@@ -158,13 +158,10 @@ toolbar {
     padding: 0px 2px!important;
 }
 #urlbar[breakout][breakout-extend] {
-    
-/*     top:inherit!important; */
     --urlbar-margin-inline: 0px;
     
-  margin-left: calc(-1 * var(--urlbar-margin-inline));
-  width: calc(var(--urlbar-width) + 2 * var(--urlbar-margin-inline));
-
+    margin-left: calc(-1 * var(--urlbar-margin-inline));
+    width: calc(var(--urlbar-width) + 2 * var(--urlbar-margin-inline));
 }
 
 #urlbar-input {
@@ -185,7 +182,6 @@ toolbar {
 .urlbarView-favicon {
     width: 10px !important;
     height: 10px !important;
-    ;
     margin-inline-end: 8px !important;
     margin-left: 4px !important;
     flex-basis: 10px;
@@ -266,20 +262,32 @@ toolbar {
 }
 
 :root {
-    --icon-scale-adjustment: .8;
+    --urlbar-icon-scale-width: 14px;
+    --urlbar-icon-scale-height: 14px;
+    --icon-scale-adjustment: .7;
 }
 
 .urlbar-page-action, 
 .toolbarbutton-badge-stack, 
 .urlbar-input-container image, 
-.toolbarbutton-icon,
-#nav-bar .toolbarbutton-1 {
-    width: 16px !important;
-    height: 16px !important;
+#nav-bar .toolbarbutton-1,
+#nav-bar .urlbar-icon, 
+#nav-bar .identity-box-button image,
+#nav-bar .toolbarbutton-icon {
+    width: var(--urlbar-icon-scale-width) !important;
+    height: var(--urlbar-icon-scale-height) !important;
     padding: 0px !important;
+    align-self: center!important;
+    border-radius: 1px!important;
+    
 }
 
-#nav-bar .toolbarbutton-1 {
+#nav-bar #identity-icon-box label{
+    padding-right: 2px;
+}
+
+#nav-bar .identity-box-button {
+    height: var(--urlbar-icon-scale-height) !important;
     align-self: center!important;
 }
 
@@ -292,21 +300,27 @@ toolbar {
 #TabsToolbar .tab-icon-image {
     width: 12px !important;
     height: 12px !important;
-    --tab-icon-end-margin: 2px !important;
+    --tab-icon-end-margin: 4px !important;
 }
+
 #TabsToolbar .toolbarbutton-icon {
     width: 14px !important;
     height: 14px !important;
     margin: 0 0 0 4px !important;
 }
 
-
-#nav-bar .toolbarbutton-1:hover {
-  background-color: var(--toolbarbutton-hover-background);
-}
-
-#nav-bar .toolbarbutton-1 .toolbarbutton-icon:hover {
-  background-color: unset!important;
+#nav-bar .toolbarbutton-1 {
+    &:not([disabled]) {
+        &:hover {
+            background-color: var(--toolbarbutton-hover-background);
+        }
+        &:hover > :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack) {
+            background: none!important;
+        }
+        &:is(:hover:active, [open], [checked]) > :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack) {
+            background: none!important;
+        }
+    }
 }
 
 .identity-box-button:not(:hover) {
@@ -317,15 +331,14 @@ toolbar {
     font-family: var(--default-font-family);
     font-size: var(--identity-icon-label-font-size);
 }
-
-#nav-bar .identity-box-button > image,
+#nav-bar .identity-box-button image,
 #nav-bar .urlbar-icon, 
 #nav-bar .toolbarbutton-icon, 
 #nav-bar .toolbarbutton-badge-stack>image, 
 #nav-bar .toolbarbutton-badge-stack>box,
 #TabsToolbar .toolbarbutton-icon, 
 #TabsToolbar .tab-icon-image {
-    transform: scale(var(--icon-scale-adjustment));
+    transform: scale(var(--icon-scale-adjustment))!important;
 }
 
 /* --- GENERAL DEBLOAT ---------------------------------- */
@@ -419,7 +432,11 @@ menupopup>#context-sep-navigation {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     font-family: var(--default-font-family);
-    font-size: var(--urlbar-container-font-size);
+    font-size: var(--searchbar-font-size);
+}
+#urlbar, #searchbar {
+    font-family: var(--default-font-family);
+    font-size: var(--searchbar-font-size);
 }
 
 #urlbar {
@@ -758,7 +775,7 @@ tab {
 
 #urlbar-background,
 #searchbar {
-    transition: .2s ease-in-out !important;
+    transition: opacity .2s ease-in-out !important;
 /*     background: var(--toolbar-field-background-color) !important; */
     /* Not currently supported :/ */
     /*   backdrop-filter: blur(6px); */
@@ -772,7 +789,7 @@ tab {
       --urlbarView-hover-background: rgb(255,0,0)!important;;
     --urlbarView-secondary-text-color: rgb(255, 0, 0)!important;; */
 /*      color: red !important; text */
-/*      background-color: rgb(0, 120, 215) !important; /* background (faded blue) */ */
+/*      background-color: rgb(0, 120, 215) !important; /* background (faded blue) */
 }
 
 .urlbar-input-container,
@@ -781,7 +798,7 @@ tab {
 .urlbar-input-box, 
 .urlbar-input {
 
-    transition: all .2s ease;
+    transition: opacity .2s ease;
     opacity: 0;
  
 }
