@@ -153,6 +153,7 @@ toolbar {
 .sidebar-placesTree {
     margin: 0;
 /*     font-size: 10px!important; */
+}
 
 #sidebar-box {
     margin-top: calc(var(--amount-of-nav-toolbars) * 18px)!important;
