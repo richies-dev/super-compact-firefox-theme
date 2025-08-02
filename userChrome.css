@@ -103,7 +103,7 @@ toolbar {
 }
 
 panel {
-    --panel-background: #333e!important;
+    --panel-background: #333333ef !important;
 }
 .panel-header h1 {
     font-size: 10px!important;
@@ -231,6 +231,10 @@ treechildren::-moz-tree-image {
     margin: 2px 0!important;
 }
 
+.bottom-actions {
+    margin: 4px 0!important;
+}
+
 .actions-list {
     &>moz-button:not(.tools-overflow) {
         --button-outer-padding-inline: 4px !important;
@@ -298,11 +302,11 @@ treechildren::-moz-tree-image {
     --searchbar-gradient-green-color: #28332899;
     background: linear-gradient(to right,
             color-mix(in srgb, var(--toolbar-bgcolor), transparent 100%),
-            color-mix(in srgb, var(--toolbar-bgcolor), transparent 60%) .2%,
-            var(--searchbar-gradient-green-color) 5%,
+            color-mix(in srgb, var(--toolbar-bgcolor), transparent 60%) .1%,
+            var(--searchbar-gradient-green-color) 2%,
             var(--searchbar-gradient-green-color) 50%,
-            var(--searchbar-gradient-green-color) 95%,
-            color-mix(in srgb, var(--toolbar-bgcolor), transparent 60%) 99.8%,
+            var(--searchbar-gradient-green-color) 98%,
+            color-mix(in srgb, var(--toolbar-bgcolor), transparent 60%) 99.9%,
             color-mix(in srgb, var(--toolbar-bgcolor), transparent 100%) 100%);
     width: 100% !important;
 }
