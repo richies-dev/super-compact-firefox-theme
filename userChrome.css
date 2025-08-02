@@ -45,9 +45,8 @@
     --tab-close-btn-font-size: 7px;
     --bookmarks-toolbar-font-size: 10px;
     
-}
-
-:root {
+    --toolbar-initial-opacity: 1;
+    
     --urlbar-icon-scale-width: 14px;
     --urlbar-icon-scale-height: 14px;
     --icon-scale-adjustment: .7;
@@ -55,7 +54,7 @@
 
 #PersonalToolbar {
     font-size: var(--bookmarks-toolbar-font-size);
-    background: #333e!important;
+    background: #444!important;
     font-size: 8px;
 }
 
@@ -104,6 +103,9 @@ toolbar {
 #navigator-toolbox:has(toolbar:nth-child(5 of #navigator-toolbox > toolbar:not([collapsed="true"]))) ~ #browser { 
     --amount-of-nav-toolbars: 2;
 }
+#browser {
+    --uc-navbar-transform: calc((var(--amount-of-nav-toolbars) - 1) * 16px);   
+}
 
 panel {
     --panel-background: #333333ef !important;
@@ -130,7 +132,7 @@ panel toolbarseparator {
     --button-background-color: #0000!important;;
 }
 #sidebar-main {
-    margin-top: calc(var(--amount-of-nav-toolbars) * 16px)!important;
+/*     margin-top: calc(var(--amount-of-nav-toolbars) * 16px)!important; */
 /*  For a hide/show on hover:    */
 /*  margin-left: -32px!important; */
 }
@@ -222,7 +224,7 @@ treechildren::-moz-tree-image {
 }
 
 #nav-bar {
-    background-color: var(--toolbar-bgcolor) !important;
+    background-color: #444 !important;
 }
 
 .tools-and-extensions, .actions-list {
@@ -850,12 +852,6 @@ tab {
     display: none;
 }
 
-/* --- AUTOHIDE NAVBAR ---------------------------------- */
-:root {
-    --uc-navbar-transform: -16px;
-    /*   calc(0px - var(--urlbar-height-setting)); */
-}
-
 #navigator-toolbox>div {
     display: contents;
 }
@@ -890,7 +886,7 @@ tab {
 }
 
 #nav-bar:not([customizing]) {
-    opacity: 0;
+    opacity: var(--toolbar-initial-opacity);
     position: relative;
     z-index: 2;
     /*! justify-self: baseline; */
@@ -918,7 +914,7 @@ tab {
 #PersonalToolbar {
     position: relative!important;
     z-index: 2;
-    opacity: 0;
+    opacity: var(--toolbar-initial-opacity);
     
 }
 
@@ -948,7 +944,7 @@ tab {
 .urlbar-input {
 
     transition: opacity .2s ease;
-    opacity: 0;
+    opacity: var(--toolbar-initial-opacity);
  
 }
 
