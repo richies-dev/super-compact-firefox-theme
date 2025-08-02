@@ -75,10 +75,6 @@
 #TabsToolbar .tab-icon-image {
     color: #eee!important;
 }
-.toolbarbutton-1:not(:hover):-moz-window-inactive, .bookmark-item:not(:hover):-moz-window-inactive, :root:not([customizing]) .toolbarbutton-1:-moz-window-inactive[disabled="true"] {
-/*   opacity: .7!important; */
-}
-
 
 #navigator-toolbox {
     height: 36px !important;
@@ -92,8 +88,26 @@ toolbar {
     height: 18px !important;
 }
 
+#navigator-toolbox:has(toolbar:nth-child(4 of #navigator-toolbox > toolbar:not([collapsed="true"]))) ~ #browser { 
+    --amount-of-nav-toolbars: 1;
+}
+#navigator-toolbox:has(toolbar:nth-child(5 of #navigator-toolbox > toolbar:not([collapsed="true"]))) ~ #browser { 
+    --amount-of-nav-toolbars: 2;
+}
+
 #sidebar-main {
-    padding-block-start: 18px !important;
+    margin-top: calc(var(--amount-of-nav-toolbars) * 18px)!important;
+    transition: .2s ease-in-out;
+/*  For a hide/show on hover:    */
+/*  margin-left: -32px!important; */
+}
+/* #navigator-toolbox:hover ~ #browser #sidebar-main,
+#sidebar-main:hover {
+    margin-left: 0!important;
+} */
+
+.tools-and-extensions[orientation="vertical"] {
+    width: 100%;
 }
 
 #nav-bar {
