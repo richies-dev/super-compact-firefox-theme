@@ -84,13 +84,20 @@ toolbar {
     min-height: 18px !important;
 }
 
+#pinned-tabs-container[orient="horizontal"] {
+  margin-inline-end: 0px!important;
+}
 .tabbrowser-tab {
     height: 18px !important;
+}
+.tabbrowser-tab[pinned="true"]{
+    margin-right: 2px!important;
 }
 
 #navigator-toolbox:has(toolbar:nth-child(4 of #navigator-toolbox > toolbar:not([collapsed="true"]))) ~ #browser { 
     --amount-of-nav-toolbars: 1;
 }
+
 #navigator-toolbox:has(toolbar:nth-child(5 of #navigator-toolbox > toolbar:not([collapsed="true"]))) ~ #browser { 
     --amount-of-nav-toolbars: 2;
 }
@@ -281,9 +288,6 @@ toolbar {
     background: transparent !important;
 }
 
-#pinned-tabs-container[orient="horizontal"] {
-  margin-inline-end: 2px!important;
-}
 
 /* Tab: hovered colors */
 #tabbrowser-tabs .tabbrowser-tab:hover:not([selected]) .tab-content {
