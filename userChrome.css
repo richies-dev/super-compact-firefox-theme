@@ -20,7 +20,7 @@
     --toolbar-field-background-color: #00000000 !important;
 
     /* try increasing if you encounter problems */
-    --urlbar-height-setting: 18px !important;
+    --urlbar-height-setting: 16px !important;
     --tab-min-height: 14px !important;
 
     /* I don't recommend you touch this unless you know what you're doing */
@@ -55,17 +55,20 @@
 
 #PersonalToolbar {
     font-size: var(--bookmarks-toolbar-font-size);
+    background: #333e!important;
+    font-size: 8px;
 }
 
 #PersonalToolbar .bookmark-item {
 /*     background: #333!important; */
-    padding: 0px 2px!important;
+    padding: 0px 0px!important;
     margin: 0px 1px!important;
-    opacity: .7!important;
+    opacity: 1!important;
     color: #aaa;
+    transition: .2s ease-in-out;
+    
 /*     box-shadow: 1px 0px 1px #1118; */
 }
-
 #urlbar-input {
     text-align: var(--urlbar-text-align) !important;
 }
@@ -77,18 +80,18 @@
 }
 
 #navigator-toolbox {
-    height: 36px !important;
+    height: 34px !important;
 }
 
 toolbar {
-    min-height: 18px !important;
+    min-height: 16px !important;
 }
 
 #pinned-tabs-container[orient="horizontal"] {
   margin-inline-end: 0px!important;
 }
 .tabbrowser-tab {
-    height: 18px !important;
+    height: 16px !important;
 }
 .tabbrowser-tab[pinned="true"]{
     margin-right: 2px!important;
@@ -127,7 +130,7 @@ panel toolbarseparator {
     --button-background-color: #0000!important;;
 }
 #sidebar-main {
-    margin-top: calc(var(--amount-of-nav-toolbars) * 18px)!important;
+    margin-top: calc(var(--amount-of-nav-toolbars) * 16px)!important;
 /*  For a hide/show on hover:    */
 /*  margin-left: -32px!important; */
 }
@@ -194,7 +197,7 @@ treechildren::-moz-tree-image {
 }
 
 #sidebar-box {
-    margin-top: calc(var(--amount-of-nav-toolbars) * 18px)!important;
+    margin-top: calc(var(--amount-of-nav-toolbars) * 16px)!important;
 }
 
 .actions-list {
@@ -849,7 +852,7 @@ tab {
 
 /* --- AUTOHIDE NAVBAR ---------------------------------- */
 :root {
-    --uc-navbar-transform: -18px;
+    --uc-navbar-transform: -16px;
     /*   calc(0px - var(--urlbar-height-setting)); */
 }
 
@@ -968,19 +971,15 @@ tab {
 #navigator-toolbox:hover,
 #navigator-toolbox:hover #PersonalToolbar,
 #navigator-toolbox:hover #urlbar,
-
 #nav-bar:hover,
 #PersonalToolbar:hover,
 #urlbar-input:hover,
-
 #nav-bar:has(~.browser-toolbar:hover), /* previous sibling */
-
 #navigator-toolbox:focus-within>.browser-toolbar .urlbar-input-container,
 #navigator-toolbox:focus-within>.browser-toolbar #identity-box,
 #navigator-toolbox:focus-within>.browser-toolbar #urlbar-input,
 #navigator-toolbox:focus-within>.browser-toolbar .urlbar-input-box,
 #navigator-toolbox:focus-within>.browser-toolbar .urlbar-input,
-
 #navigator-toolbox:hover .urlbar-input-container,
 #navigator-toolbox:hover #identity-box, 
 #navigator-toolbox:hover #urlbar-input, 
