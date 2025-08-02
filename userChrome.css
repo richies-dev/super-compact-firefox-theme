@@ -104,7 +104,6 @@ toolbar {
 
 #sidebar-main {
     margin-top: calc(var(--amount-of-nav-toolbars) * 18px)!important;
-    transition: .2s ease-in-out;
 /*  For a hide/show on hover:    */
 /*  margin-left: -32px!important; */
 }
@@ -113,8 +112,71 @@ toolbar {
     margin-left: 0!important;
 } */
 
-.tools-and-extensions[orientation="vertical"] {
-    width: 100%;
+.sidebar-panel {
+    font-size: 10px!important;
+}
+.sidebar-panel-header h4, #sidebar-panel-header h4  {
+    font-size: 12px!important;
+}
+#heading-wrapper {
+  & .chevron-icon, & #heading-icon {
+    background-position: center;
+    background-repeat: no-repeat;
+    -moz-context-properties: fill;
+    fill: currentColor;
+    width: 16px!important;
+    height: 16px!important;
+    min-width: 16px!important;
+    min-height: 16px!important;
+    padding: 0;
+    flex-shrink: 0;
+    align-self: flex-start;
+  }
+}
+.sidebar-panel moz-input-search {
+    --input-text-min-height: 24px!important;
+}
+.sidebar-panel .options-container {
+    height: 24px!important;
+}
+.fxview-tab-row-main {
+  padding-block: 0px!important;
+  padding-inline: 4px 4px!important;
+  border-radius: 2px!important;
+  gap: 8px!important;
+}
+.fxview-tab-row-favicon {
+  min-height: 12px!important;
+  min-width: 12px!important;
+}
+
+.sidebar-placesTree {
+    margin: 0;
+/*     font-size: 10px!important; */
+
+#sidebar-box {
+    margin-top: calc(var(--amount-of-nav-toolbars) * 18px)!important;
+}
+
+.actions-list {
+  > moz-button {
+    --button-icon-fill: var(--toolbarbutton-icon-fill);
+    --button-attention-dot-color: light-dark(#53b93a, #73d25d);
+  }
+
+  > moz-button:not(.tools-overflow) {
+    --button-outer-padding-inline: 0!important;
+    --button-outer-padding-block: 0!important;
+
+    &:first-of-type {
+      --button-outer-padding-block-start: 0!important;
+    }
+
+    &:last-of-type {
+      --button-outer-padding-block-end: 0!important;
+    }
+  }
+
 }
 
 #nav-bar {
@@ -122,31 +184,43 @@ toolbar {
 }
 
 .tools-and-extensions, .actions-list {
-    --button-outer-padding-block-start: 0px !important;
-    --button-size-icon: 8px !important;
     --icon-size-default: 10px !important;
     --button-padding-icon: 4px !important;
-    --button-margin-icon: 0px !important;
+}
+
+.tools-and-extensions[orientation="vertical"] moz-button {
+    margin: 2px 0!important;
 }
 
 .actions-list {
     &>moz-button:not(.tools-overflow) {
         --button-outer-padding-inline: 4px !important;
-        --button-outer-padding-block: 8px !important;
-        --button-outer-padding-block-start: 0px !important;
-        --button-outer-padding-block-end: 0px !important;
     }
 }
 
-/* .button-background {
-  &[type~="icon"]:not(.labelled), &:not(.labelled):has(img) {
-    width: var(--button-size-icon);
-    height: var(--button-size-icon);
-    padding: var(--button-padding-icon);
+.button-background {
+    min-height: 0px!important;
+    
+  & img {
+    width: 10px!important;
+    height: 10px!important;
+    pointer-events: none;
   }
-} */
+}
 
-/* #urlbar[attr*=] */
+.actions-list {
+
+  > moz-button {
+    --button-size-icon-small: 14px !important;
+    --button-size-icon: 14px !important;
+  }
+  moz-button:not([type~="ghost"]):not(:hover) {
+    &::part(button) {
+      background-color: var(--toolbarbutton-active-background);
+    }
+  }
+}
+
 #urlbar,
 #navigator-toolbox {
     /*! --focus-outline: none !important; */
@@ -243,11 +317,6 @@ toolbar {
 
 
 #TabsToolbar-customization-target {}
-
-.button-background {
-    --button-size-icon-small: 16px !important;
-    --button-size-icon: 14px !important;
-}
 
 #TabsToolbar {
     align-items: flex-start;
