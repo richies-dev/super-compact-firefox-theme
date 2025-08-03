@@ -31,31 +31,27 @@
     --urlbarView-row-gutter: 0px !important;
     --icon-size-default: 12px !important;
     --urlbar-text-align: left;
-    /*   --button-outer-padding-block-start: 12px!important; */
-    /*   --button-outer-padding-inline: 1px!important; */
-    /*   --button-outer-padding-block: 2px!important; */
-
+    
+    /* Remove or set to none to hide the new tab button*/
+    --new-tab-display: flex;
+    
+    --toolbarbutton-icon-fill: #eee!important;
+    
+    /* try increasing if you encounter problems */
+    --tab-min-height: 14px !important;
+    --toolbar-height: 16px;
+    
+    --urlbar-icon-scale-width: 14px;
+    --urlbar-icon-scale-height: 14px;
+    --icon-scale-adjustment: .7;
+    --default-transition-duration: .3s;
+    
     --identity-icon-label-font-size: 8px;
     --searchbar-font-size: 10px;
     --default-font-family: sans-serif;
     --tab-font-size: 10px;
     --tab-close-btn-font-size: 7px;
     --bookmarks-toolbar-font-size: 10px;
-
-    --urlbar-icon-scale-width: 14px;
-    --urlbar-icon-scale-height: 14px;
-    --icon-scale-adjustment: .7;
-
-    /* Remove or set to none to hide the new tab button*/
-    --new-tab-display: flex;
-    
-    --toolbarbutton-icon-fill: #eee!important;
-    
-    --default-transition-duration: .3s;
-    
-    /* try increasing if you encounter problems */
-    --tab-min-height: 14px !important;
-    --toolbar-height: 18px;
     
 }
 
@@ -315,12 +311,10 @@ treechildren::-moz-tree-image {
 #searchbar:focus-within {
     --searchbar-gradient-green-color: #28332899;
     background: linear-gradient(to right,
-            color-mix(in srgb, var(--toolbar-bgcolor), transparent 100%),
-            color-mix(in srgb, var(--toolbar-bgcolor), transparent 60%) .1%,
-            var(--searchbar-gradient-green-color) 2%,
+            color-mix(in srgb, var(--toolbar-bgcolor), transparent 100%) 0%,
+            color-mix(in srgb, var(--toolbar-bgcolor), transparent 40%) .1%,
             var(--searchbar-gradient-green-color) 50%,
-            var(--searchbar-gradient-green-color) 98%,
-            color-mix(in srgb, var(--toolbar-bgcolor), transparent 60%) 99.9%,
+            color-mix(in srgb, var(--toolbar-bgcolor), transparent 40%) 99.9%,
             color-mix(in srgb, var(--toolbar-bgcolor), transparent 100%) 100%);
     width: 100% !important;
 }
@@ -788,21 +782,25 @@ tab {
     }   
 }
 
+
 #tabbrowser-tabs { 
     font-size: var(--tab-font-size) !important;    
 
     & .tab-group-label-container {
         color: #eee !important;        
-        margin: 0px!important;
+        margin: 0 0px!important;    
+        background-color: var(--tab-inactive-bg-color) !important;
     }
     & .tab-group-label {
+        margin: 0!important;
         font-weight: normal!important;
-          outline: none!important;
+        outline: 1px solid #ccc5!important;
+        outline-offset: -1px!important;
     }
 }
 
 #tabbrowser-tabs[orient="horizontal"] {
-    
+    --tab-group-label-height: var(--toolbar-height)!important;
     & .tabbrowser-tab[pinned="true"]{
         margin-right: 2px!important;
     }
@@ -812,6 +810,13 @@ tab {
         inset-block-end: 0px!important;
     }
     & .tab-group-label-container {
+        margin-inline-start: 0px!important;
+        padding-inline-start: 0px!important;
+        padding-inline-end: 2px!important;
+        align-items: end;
+        display: flex;
+        flex-direction: row;
+/*         margin-left: 2px!important; */
         tab-group:not([collapsed]) > &::after {
             height: 2px!important;
             inset: auto 0 0px!important;
@@ -820,6 +825,7 @@ tab {
             border-end-start-radius: 0px!important;
         }
     }
+}
 }
 
 /* hide window controls */
