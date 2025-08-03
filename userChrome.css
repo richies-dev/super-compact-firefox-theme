@@ -394,8 +394,6 @@ treechildren::-moz-tree-image {
     margin-block: 1px 0 !important;
 }
 
-.tab-content {}
-
 .tabbrowser-tab {
     --toolbarbutton-inner-padding: 0px 2px !important;
 }
@@ -414,12 +412,6 @@ treechildren::-moz-tree-image {
 
 #urlbarView {
     background: transparent !important;
-}
-
-
-/* Tab: hovered colors */
-#tabbrowser-tabs .tabbrowser-tab:hover:not([selected]) .tab-content {
-    background: #1c1b22;
 }
 
 .urlbar-page-action {
@@ -780,14 +772,6 @@ tab {
 
 /* disable favicons in tab */
 /* .tab-icon-stack:not([pinned]) { display: none !important; } */
-.tabbrowser-tab {
-    /* remove border between tabs */
-    padding-inline: 0px !important;
-    /* reduce fade effect of tab text */
-    --tab-label-mask-size: 1em !important;
-    /* fix pinned tab behaviour on overflow */
-    overflow-clip-margin: 0px !important;
-}
 
 .tab-icon-stack {
     margin-right: 2px;
@@ -798,16 +782,29 @@ tab {
 #TabsToolbar-customization-target {
     background-color: var(--tabs-background-color);
 }
-/* Tab: selected colors */
-#tabbrowser-tabs .tabbrowser-tab[selected] .tab-content {
-    background: var(--tab-active-bg-color) !important;
-    color: var(--identity-icon-color,
-            var(--tab-active-fg-fallback-color)) !important;
-}
-#tabbrowser-tabs .tabbrowser-tab:not([selected="true"]) .tab-content {
+
+#tabbrowser-tabs .tabbrowser-tab {
+
+    padding-inline: 0px !important;
+    --tab-label-mask-size: 1em !important;
+    overflow-clip-margin: 0px !important;
     
-    background-color: var(--tab-inactive-bg-color) !important;
-    color: #eee !important;
+    &:not([selected="true"]) {
+        & .tab-content {
+            color: #eee !important;        
+        }
+        & .tab-background {
+            background-color: var(--tab-inactive-bg-color) !important;
+        }
+    }
+    &:[selected] {
+        & .tab-content {
+            color: var(--identity-icon-color, var(--tab-active-fg-fallback-color)) !important;
+        }
+        & .tab-background {
+            background: var(--tab-active-bg-color) !important;
+        }
+    }
 }
 
 /* hide window controls */
