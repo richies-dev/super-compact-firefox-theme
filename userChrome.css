@@ -44,13 +44,16 @@
     --tab-font-size: 10px;
     --tab-close-btn-font-size: 7px;
     --bookmarks-toolbar-font-size: 10px;
-    
-}
 
-:root {
     --urlbar-icon-scale-width: 14px;
     --urlbar-icon-scale-height: 14px;
     --icon-scale-adjustment: .7;
+
+    /* Remove or set to none to hide the new tab button*/
+    --new-tab-display: block;
+    --toolbarbutton-icon-fill: #eee!important;
+    --default-transition-duration: .3s;
+    
 }
 
 #PersonalToolbar {
@@ -60,15 +63,13 @@
 }
 
 #PersonalToolbar .bookmark-item {
-/*     background: #333!important; */
     padding: 0px 0px!important;
     margin: 0px 1px!important;
     opacity: 1!important;
     color: #aaa;
-    transition: .2s ease-in-out;
-    
-/*     box-shadow: 1px 0px 1px #1118; */
+    transition: var(--default-transition-duration) ease-in-out;
 }
+
 #urlbar-input {
     text-align: var(--urlbar-text-align) !important;
 }
@@ -90,9 +91,11 @@ toolbar {
 #pinned-tabs-container[orient="horizontal"] {
   margin-inline-end: 0px!important;
 }
+
 .tabbrowser-tab {
     height: 16px !important;
 }
+
 .tabbrowser-tab[pinned="true"]{
     margin-right: 2px!important;
 }
@@ -840,9 +843,18 @@ tab {
     display: none !important;
 }
 
-/* remove new tab button */
 #tabs-newtab-button {
-    display: none !important;
+    display: var(--new-tab-display, none)!important;
+    --toolbarbutton-hover-background: none;
+    --toolbarbutton-active-background: none;
+    margin-left: 1px!important;
+    background-color: var(--toolbar-bgcolor) !important;
+}
+#tabs-newtab-button:hover {
+    background-color: #444!important;
+}
+#tabs-newtab-button .toolbarbutton-icon {
+    margin: 1px 0px 1px 1px!important;
 }
 
 /* hide private browsing indicator */
@@ -871,7 +883,7 @@ tab {
 #urlbar-input,
 #nav-bar>.sidebar-button,
 #PersonalToolbar {
-    transition: all 0.2s ease-in-out !important;
+    transition: all var(--default-transition-duration) ease-in-out !important;
 /*! color: #eeeeee00 !important; */
 }
 
@@ -924,7 +936,7 @@ tab {
 
 #urlbar-background,
 #searchbar {
-    transition: opacity .2s ease-in-out !important;
+    transition: opacity var(--default-transition-duration) ease-in-out !important;
 /*     background: var(--toolbar-field-background-color) !important; */
     /* Not currently supported :/ */
     /*   backdrop-filter: blur(6px); */
@@ -947,7 +959,7 @@ tab {
 .urlbar-input-box, 
 .urlbar-input {
 
-    transition: opacity .2s ease;
+    transition: opacity var(--default-transition-duration) ease;
     opacity: 0;
  
 }
