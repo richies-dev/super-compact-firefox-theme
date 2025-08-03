@@ -51,9 +51,19 @@
 
     /* Remove or set to none to hide the new tab button*/
     --new-tab-display: block;
+    
     --toolbarbutton-icon-fill: #eee!important;
+    
     --default-transition-duration: .3s;
     
+}
+
+/* 
+Hide the menu bar for windows. We might not want to do this, so we can check if it's closed/open or not
+via css in the future. 
+*/
+#toolbar-menubar {
+    display: none!important;
 }
 
 #PersonalToolbar {
