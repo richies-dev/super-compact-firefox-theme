@@ -752,8 +752,8 @@ tab {
     background-color: var(--tabs-background-color);
 }
 
-#tabbrowser-tabs .tabbrowser-tab {
 
+#tabbrowser-tabs .tabbrowser-tab {
     padding-inline: 0px !important;
     --tab-label-mask-size: 1em !important;
     overflow-clip-margin: 0px !important;
@@ -782,7 +782,6 @@ tab {
     }   
 }
 
-
 #tabbrowser-tabs { 
     font-size: var(--tab-font-size) !important;    
 
@@ -801,6 +800,12 @@ tab {
 
 #tabbrowser-tabs[orient="horizontal"] {
     --tab-group-label-height: var(--toolbar-height)!important;
+    
+    /* Tab groups will not collapse if we apply this to tabbrowser-tabs inside them */
+    .tabbrowser-tab:not(tab-group > .tabbrowser-tab) {
+        max-width: 100vw!important;
+    }
+    
     & .tabbrowser-tab[pinned="true"]{
         margin-right: 2px!important;
     }
