@@ -810,7 +810,10 @@ tab {
             flex-grow: 100!important;
         }
     }
-    
+    & #tabbrowser-arrowscrollbox-periphery{
+        flex: 1 0!important;
+        justify-content: end;
+    }
     & .tabbrowser-tab[pinned="true"]{
         margin-right: 2px!important;
     }
@@ -826,7 +829,7 @@ tab {
         align-items: end;
         display: flex;
         flex-direction: row;
-/*         margin-left: 2px!important; */
+        
         tab-group:not([collapsed]) > &::after {
             height: 2px!important;
             inset: auto 0 0px!important;
@@ -836,7 +839,7 @@ tab {
         }
     }
 }
-}
+
 
 /* hide window controls */
 .titlebar-buttonbox-container {
@@ -889,6 +892,7 @@ tab {
     margin-left: 1px!important;
     background-color: var(--toolbar-bgcolor) !important;
 }
+
 #tabs-newtab-button:hover {
     background-color: #444!important;
 }
