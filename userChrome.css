@@ -801,9 +801,14 @@ tab {
 #tabbrowser-tabs[orient="horizontal"] {
     --tab-group-label-height: var(--toolbar-height)!important;
     
-    /* Tab groups will not collapse if we apply this to tabbrowser-tabs inside them */
-    .tabbrowser-tab:not(tab-group > .tabbrowser-tab) {
-        max-width: 100vw!important;
+    /* We want full width tabs, but only when they are visible (not cached/fade-in) and not in a collapsed tab-group */
+    & .tabbrowser-tab:not(tab-group > .tabbrowser-tab),
+    & .tabbrowser-tab:is(tab-group:not(tab-group[collapsed]) > .tabbrowser-tab) {
+        /* We want to only apply to fadein as well, since otherwise it is a pinned tab, or cached and invisible */
+        &[fadein]{
+            max-width: 100vw!important;
+            flex-grow: 100!important;
+        }
     }
     
     & .tabbrowser-tab[pinned="true"]{
