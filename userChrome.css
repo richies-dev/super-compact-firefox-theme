@@ -1,7 +1,7 @@
 :root {
     --tabs-background-color: #282828 !important;
 /*     --tab-active-bg-color: #257 !important; */
-    --tab-border-radius: 1px!important;
+    --tab-border-radius: 4px!important;
     
     --tab-outline-color: blue!important;
     --tab-outline: 0px solid var(--tab-outline-color) !important;
@@ -29,7 +29,7 @@
     --toolbar-field-focus-background-color: var(--urlbar-focused-bg-color) !important;
     --toolbar-field-focus-border-color: transparent !important;
     --urlbarView-row-gutter: 0px !important;
-    --icon-size-default: 12px !important;
+    --icon-size-default: 16px !important;
     --urlbar-text-align: left;
     
     /* Remove or set to none to hide the new tab button*/
@@ -39,19 +39,19 @@
     
     /* try increasing if you encounter problems */
     --tab-min-height: 14px !important;
-    --toolbar-height: 16px;
+    --toolbar-height: 20px;
     
-    --urlbar-icon-scale-width: 14px;
-    --urlbar-icon-scale-height: 14px;
+    --urlbar-icon-scale-width: 24px;
+    --urlbar-icon-scale-height: 24px;
     --icon-scale-adjustment: .7;
     --default-transition-duration: .3s;
     
-    --identity-icon-label-font-size: 8px;
-    --searchbar-font-size: 10px;
+    --identity-icon-label-font-size: 12px;
+    --searchbar-font-size: 14px;
     --default-font-family: sans-serif;
-    --tab-font-size: 10px;
-    --tab-close-btn-font-size: 7px;
-    --bookmarks-toolbar-font-size: 10px;
+    --tab-font-size: 14px;
+    --tab-close-btn-font-size: 18px;
+    --bookmarks-toolbar-font-size: 12px;
     
 }
 
@@ -66,7 +66,6 @@ via css in the future.
 #PersonalToolbar {
     font-size: var(--bookmarks-toolbar-font-size);
     background: #333e!important;
-    font-size: 8px;
 }
 
 #PersonalToolbar .bookmark-item {
@@ -116,14 +115,14 @@ panel {
     --panel-background: #333333ef !important;
 }
 .panel-header h1 {
-    font-size: 10px!important;
+    font-size: 18px!important;
     font-family: var(--default-font-family);
 }
 panel toolbarseparator {
     background: #55f5!important;;
 }
 .panel-subview-body {
-    font-size: 12px!important;
+    font-size: 14px!important;
     font-family: var(--default-font-family);
     color: #ccc!important;
 }
@@ -132,8 +131,8 @@ panel toolbarseparator {
 }
 
 .panel-subview-body toolbarbutton {
-    padding: 4px!important;
-    margin: 1px!important;
+    padding: 6px!important;
+    margin: 2px!important;
     --button-background-color: #0000!important;;
 }
 #sidebar-main {
@@ -147,10 +146,10 @@ panel toolbarseparator {
 } */
 
 .sidebar-panel {
-    font-size: 10px!important;
+    font-size: 14px!important;
 }
 .sidebar-panel-header h4, #sidebar-panel-header h4  {
-    font-size: 12px!important;
+    font-size: 16px!important;
 }
 #heading-wrapper {
   & .chevron-icon, & #heading-icon {
@@ -180,17 +179,17 @@ panel toolbarseparator {
   gap: 8px!important;
 }
 .fxview-tab-row-favicon {
-  min-height: 12px!important;
-  min-width: 12px!important;
+  min-height: 14px!important;
+  min-width: 14px!important;
 }
 
 .sidebar-placesTree {
     margin: 0;
-    font-size: 10px!important;
+    font-size: 14px!important;
 }
 treechildren::-moz-tree-image {
-    width: 12px!important;;
-    height: 12px!important;;
+    width: 14px!important;;
+    height: 14px!important;;
 }
 
 #sidebar {
@@ -247,7 +246,7 @@ treechildren::-moz-tree-image {
 
 .actions-list {
     &>moz-button:not(.tools-overflow) {
-        --button-outer-padding-inline: 4px !important;
+        --button-outer-padding-inline: 8px !important;
     }
 }
 
@@ -255,8 +254,8 @@ treechildren::-moz-tree-image {
     min-height: 0px!important;
     
   & img {
-    width: 10px!important;
-    height: 10px!important;
+    width: 16px!important;
+    height: 16px!important;
     pointer-events: none;
   }
 }
@@ -264,8 +263,8 @@ treechildren::-moz-tree-image {
 .actions-list {
 
   > moz-button {
-    --button-size-icon-small: 14px !important;
-    --button-size-icon: 14px !important;
+    --button-size-icon-small: 16px !important;
+    --button-size-icon: 16px !important;
   }
   moz-button:not([type~="ghost"]):not(:hover) {
     &::part(button) {
@@ -321,7 +320,7 @@ treechildren::-moz-tree-image {
 
 
 #urlbar .urlbar-input-container {
-    padding: 0px 2px!important;
+    padding: 0px 4px!important;
 }
 #urlbar[breakout][breakout-extend] {
     --urlbar-margin-inline: 0px;
@@ -346,8 +345,8 @@ treechildren::-moz-tree-image {
 }
 
 .urlbarView-favicon {
-    width: 10px !important;
-    height: 10px !important;
+    width: 14px !important;
+    height: 14px !important;
     margin-inline-end: 8px !important;
     margin-left: 4px !important;
     flex-basis: 10px;
@@ -374,9 +373,9 @@ treechildren::-moz-tree-image {
 }
 
 .tab-icon-overlay {
-    width: 12px !important;
-    height: 12px !important;
-    margin: 0 4px !important;
+    width: 14px !important;
+    height: 14px !important;
+    margin: 0 6px !important;
     top: -2px !important;
     background-image: none !important;
     cursor: pointer !important;
@@ -387,12 +386,11 @@ treechildren::-moz-tree-image {
 }
 
 .tabbrowser-tab {
-    --toolbarbutton-inner-padding: 0px 2px !important;
+    --toolbarbutton-inner-padding: 0px 1px !important;
 }
 
 #tabbrowser-tabs {
     --tab-min-width: unset;
-    --tab-inline-padding: calc((var(--tab-collapsed-width) - var(--icon-size-default)) / 2);
     --tab-inline-padding: 2px;
     --tab-inner-inline-margin: 2px;
 }
@@ -423,12 +421,12 @@ treechildren::-moz-tree-image {
     height: var(--urlbar-icon-scale-height) !important;
     padding: 0px !important;
     align-self: center!important;
-    border-radius: 1px!important;
+    border-radius: 2px!important;
     
 }
 
 #nav-bar #identity-icon-box label{
-    padding-right: 2px;
+    padding-right: 4px;
 }
 
 #nav-bar .identity-box-button {
@@ -443,15 +441,15 @@ treechildren::-moz-tree-image {
 }
 
 #TabsToolbar .tab-icon-image {
-    width: 14px !important;
-    height: 14px !important;
-    --tab-icon-end-margin: 4px !important;
+    width: 22px !important;
+    height: 22px !important;
+    --tab-icon-end-margin: 6px !important;
 }
 
 #TabsToolbar .toolbarbutton-icon {
-    width: 14px !important;
-    height: 14px !important;
-    margin: 0 0 0 4px !important;
+    width: 20px !important;
+    height: 20px !important;
+    margin: 0 0 0 6px !important;
 }
 
 #nav-bar .toolbarbutton-1, #PersonalToolbar .toolbarbutton-1 {
@@ -568,7 +566,7 @@ menupopup>#context-sep-navigation {
 
 /* add padding to the right of the last button so that it doesn't touch the edge of the window */
 #PanelUI-menu-button {
-    padding: 0px 2px 0px 2px !important;
+    padding: 0px 4px 0px 4px !important;
 }
 
 #urlbar-container {
@@ -594,8 +592,8 @@ menupopup>#context-sep-navigation {
 }
 
 #urlbar-input {
-    margin-left: 0.4em !important;
-    margin-right: 0.4em !important;
+    margin-left: 0em !important;
+    margin-right: 0em !important;
 }
 
 #navigator-toolbox {
@@ -604,26 +602,26 @@ menupopup>#context-sep-navigation {
 
 /* keep pop-up menus from overlapping with navbar */
 #widget-overflow {
-    margin: 4px !important;
+    margin: 6px !important;
 }
 
 #customizationui-widget-panel {
-    margin: 4px !important;
+    margin: 6px !important;
 }
 
 #unified-extensions-panel {
-    margin-top: 4px !important;
+    margin-top: 6px !important;
 }
 
 #appMenu-popup {
-    margin-top: 4px !important;
+    margin-top: 6px !important;
 }
 
 /* --- UNIFIED EXTENSIONS BUTTON ------------------------ */
 
 /* make extension icons smaller */
 #unified-extensions-view {
-    --uei-icon-size: 16px;
+    --uei-icon-size: 20px;
 }
 
 /* hide bloat */
@@ -636,7 +634,7 @@ menupopup>#context-sep-navigation {
 
 /* add 3px padding on the top and the bottom of the box */
 .panel-subview-body {
-    padding: 3px 0px !important;
+    padding: 6px 0px !important;
 }
 
 .unified-extensions-item-contents {
@@ -691,7 +689,7 @@ panelview .toolbarbutton-1,
 
 .identity-box-button {
     padding: 0 !important;
-    margin-right: 2px !important;
+    margin-right: 4px !important;
 }
 
 /* Go to arrow button at the end of the urlbar when searching */
@@ -721,9 +719,9 @@ panelview .toolbarbutton-1,
     display: initial !important;
     opacity: .6 !important;
     font-size: var(--tab-close-btn-font-size) !important;
-    padding: 6px 3px !important;
+    padding: 5px 5px !important;
     /*   width: 16px!important; */
-    width: 16px !important;
+    width: 22px !important;
     cursor: pointer !important;
 }
 
@@ -787,13 +785,13 @@ tab {
 
     & .tab-group-label-container {
         color: #eee !important;        
-        margin: 0 0px!important;    
+        margin: 0 0px !important;    
         background-color: var(--tab-inactive-bg-color) !important;
     }
     & .tab-group-label {
         margin: 0!important;
         font-weight: normal!important;
-        outline: 1px solid #ccc5!important;
+        outline: 2px solid #ccc5!important;
         outline-offset: -1px!important;
     }
 }
@@ -815,7 +813,7 @@ tab {
         justify-content: end;
     }
     & .tabbrowser-tab[pinned="true"]{
-        margin-right: 2px!important;
+        margin-right: 0px !important;
     }
     & .tab-group-line {
         height: 2px!important;
@@ -823,9 +821,9 @@ tab {
         inset-block-end: 0px!important;
     }
     & .tab-group-label-container {
-        margin-inline-start: 0px!important;
+        margin-inline-start: 0px !important;
         padding-inline-start: 0px!important;
-        padding-inline-end: 2px!important;
+        padding-inline-end: 2px !important;
         align-items: end;
         display: flex;
         flex-direction: row;
@@ -889,7 +887,7 @@ tab {
     align-content: center;
     --toolbarbutton-hover-background: none;
     --toolbarbutton-active-background: none;
-    margin-left: 1px!important;
+    margin-left: 2px !important;
     background-color: var(--toolbar-bgcolor) !important;
 }
 
@@ -897,7 +895,7 @@ tab {
     background-color: #444!important;
 }
 #tabs-newtab-button .toolbarbutton-icon {
-    margin: 1px 0px 1px 1px!important;
+    margin: 0px 0px 0px 0px !important;
 }
 
 /* hide private browsing indicator */
